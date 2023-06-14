@@ -43,7 +43,6 @@ INDEX VERSION 1.132+/Users/jayciehorner/WorkSpace/Spring Tool Suite/.metadata/.p
 2366028440.index
 2052924993.index
 2093997530.index
-4073018140.index
 3523961465.index
 1731306468.index
 2701170006.index
