@@ -1,11 +1,12 @@
 package com.skillstorm.training.week09.day2;
 /*
  * To make a Singleton, we need to do the following 3 steps:
- * 1. private static final
- * 2.
- * 3.
+ * 1. private static final instance of the class
+ * 2. private constructor
+ * 3. public static getInstance() method to obtain the object
  */
-
+import java.util.List;
+import java.util.ArrayList;
 public class SingletonExample {
 	public static void main(String[] args) {
 		Universe u = Universe.getInstance();
@@ -52,3 +53,5 @@ class Universe {
 	}
 
 }
+
+
