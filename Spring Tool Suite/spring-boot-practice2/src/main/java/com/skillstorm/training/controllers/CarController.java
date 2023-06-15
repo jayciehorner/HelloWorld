@@ -1,8 +1,7 @@
 package com.skillstorm.training.controllers;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -12,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,41 +21,68 @@ import com.skillstorm.training.services.CarService;
 @RestController
 @RequestMapping("/cars")
 public class CarController {
-	private final CarService serv;
 
-//	@Autowired
-	public CarController(CarService serv) {
-		this.serv = serv;
+	private final Logger logger = LoggerFactory.getLogger(CarController.class);
+
+	private final CarService service;
+
+	@Autowired
+	public CarController(CarService service) {
+		this.service = service;
 	}
 
-	@GetMapping
-	public Iterable<Car> findAll() {
-		List<Car> cars = new ArrayList<>();
-		return serv.findAll();
+	@GetMapping // localhost:8080/cars?year=2017 or
+				// localhost:8080/cars?model=mazda
+	public Iterable<Car> findAll(
+			@RequestParam(name = "model", required = false) String model,
+			@RequestParam(name = "year", required = false) Integer year) {
+		logger.debug(
+				"Request Parameter Values: model=" + model + " year=" + year);
+		logger.trace("This is a trace");
+		logger.info("This is an info log");
+		logger.warn("This is a warn log");
+		logger.error("This is a warn log");
+		if (model != null) {
+			return service.findByModel(model);
+		}
+		if (year != null) {
+			return service.findByYear(year);
+		}
+		return service.findAll();
 	}
 
-	@GetMapping("/{id}") // this is going  to be the car_id column from the schema, here the names just need to match
+	@GetMapping("/search")
+	public Iterable<Car> findBySearchCriteria() {
+		return null;
+	}
+
+	@GetMapping("/{id}") // this is going to be the car_id column from the
+							// schema, here the names just need to match
 	public Car findById(@PathVariable long id) {
-//		Car car = new Car();
-//		car.setId(id);
-//		System.out.println("id = " + id);
-		return serv.findById(id);
+		return service.findById(id); //
+	}
+
+	@GetMapping("/make/{make}") // TODO debug
+	public Iterable<Car> findByMake(@PathVariable String make) {
+		return service.findByMake(make); //
 	}
 
 	@PostMapping
 	@ResponseStatus(code = HttpStatus.CREATED)
 	public Car save(@RequestBody Car car) {
-		return serv.save(car);
+		return service.save(car);
 	}
 
 	@PutMapping("/{id}")
 	public Car update(@RequestBody Car car, @PathVariable long id) {
-		return serv.save(car);
+		car.setId(id);
+		return service.save(car);
 	}
 
 	@DeleteMapping
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
 	public void delete(@RequestBody Car car) {
-		serv.delete(car);
+		service.delete(car);
 	}
+
 }
