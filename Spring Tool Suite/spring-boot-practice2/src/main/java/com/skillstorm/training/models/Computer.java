@@ -12,6 +12,8 @@ import javax.persistence.OneToMany;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
+// If you want to add validation like NotNull that gets checked when an instance is created add the dependency to POM
+
 @Entity
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Computer {
@@ -19,6 +21,7 @@ public class Computer {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "computer_id")
 	private int id;
+//	@NotNull // TODO add validation
 	private String name;
 	// computers have many parts
 	@OneToMany(mappedBy = "computer")
