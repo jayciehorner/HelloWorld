@@ -1,5 +1,7 @@
 package com.skillstorm.training.models;
 
+import java.time.Instant;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+
+import org.hibernate.annotations.UpdateTimestamp;
 
 @Entity
 public class Actor {
@@ -19,14 +23,18 @@ public class Actor {
 	
 
 	
-	private int actorId;
+	private short actorId;
+	@Column(length = 45)
     private String firstName;
+	@Column(length = 45)
     private String lastName;
-    private String lastUpdate;
-	public int getActorId() {
+    
+    @UpdateTimestamp
+    private Instant lastUpdate;
+	public short getActorId() {
 		return actorId;
 	}
-	public void setActorId(int actorId) {
+	public void setActorId(short actorId) {
 		this.actorId = actorId;
 	}
 	public String getFirstName() {
@@ -41,10 +49,10 @@ public class Actor {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	public String getLastUpdate() {
+	public Instant getLastUpdate() {
 		return lastUpdate;
 	}
-	public void setLastUpdate(String lastUpdate) {
+	public void setLastUpdate(Instant lastUpdate) {
 		this.lastUpdate = lastUpdate;
 	}
 	@Override
@@ -52,7 +60,7 @@ public class Actor {
 		return "Actor [actorId=" + actorId + ", firstName=" + firstName + ", lastName=" + lastName + ", lastUpdate="
 				+ lastUpdate + "]";
 	}
-	public Actor(int actorId, String firstName, String lastName, String lastUpdate) {
+	public Actor(short actorId, String firstName, String lastName, Instant lastUpdate) {
 		super();
 		this.actorId = actorId;
 		this.firstName = firstName;

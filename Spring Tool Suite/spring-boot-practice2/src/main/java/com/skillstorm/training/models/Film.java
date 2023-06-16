@@ -1,4 +1,9 @@
 package com.skillstorm.training.models;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import java.time.Instant;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,29 +14,38 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+
+import org.hibernate.annotations.UpdateTimestamp;
+
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 @Entity
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Film {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "film_id")
 
-	private int filmId;
+	private short filmId;
+	@Column(length = 255)
 	private String title;
 	private String description;
 	private int releaseYear;
-	private int length;
+	private short length;
 	private String rating;
-	private String lastUpdate;
+	@UpdateTimestamp
+	private Instant lastUpdate;
 	
-	@ManyToMany(mappedBy = "film_category", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "film_category")
 	@JoinTable(name = "film_id",
 				joinColumns = @JoinColumn(name = "film_id"),
 				inverseJoinColumns = @JoinColumn(name = "actor_id"))
 	
-	public int getFilmId() {
+	public short getFilmId() {
 		return filmId;
 	}
-	public void setFilmId(int filmId) {
+	public void setFilmId(short filmId) {
 		this.filmId = filmId;
 	}
 	public String getTitle() {
@@ -52,10 +66,10 @@ public class Film {
 	public void setReleaseYear(int releaseYear) {
 		this.releaseYear = releaseYear;
 	}
-	public int getLength() {
+	public short getLength() {
 		return length;
 	}
-	public void setLength(int length) {
+	public void setLength(short length) {
 		this.length = length;
 	}
 	public String getRating() {
@@ -64,10 +78,10 @@ public class Film {
 	public void setRating(String rating) {
 		this.rating = rating;
 	}
-	public String getLastUpdate() {
+	public Instant getLastUpdate() {
 		return lastUpdate;
 	}
-	public void setLastUpdate(String lastUpdate) {
+	public void setLastUpdate(Instant lastUpdate) {
 		this.lastUpdate = lastUpdate;
 	}
 	@Override
@@ -75,8 +89,8 @@ public class Film {
 		return "Film [filmId=" + filmId + ", title=" + title + ", description=" + description + ", releaseYear="
 				+ releaseYear + ", length=" + length + ", rating=" + rating + ", lastUpdate=" + lastUpdate + "]";
 	}
-	public Film(int filmId, String title, String description, int releaseYear, int length, String rating,
-			String lastUpdate) {
+	public Film(short filmId, String title, String description, int releaseYear, short length, String rating,
+			Instant lastUpdate) {
 		super();
 		this.filmId = filmId;
 		this.title = title;

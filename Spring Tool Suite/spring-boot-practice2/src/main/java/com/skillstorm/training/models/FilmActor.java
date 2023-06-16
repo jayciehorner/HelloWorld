@@ -1,5 +1,7 @@
 package com.skillstorm.training.models;
 
+import java.time.Instant;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+
+import org.hibernate.annotations.UpdateTimestamp;
 
 @Entity
 public class FilmActor {
@@ -20,32 +24,33 @@ public class FilmActor {
 @JoinTable(name = "film_actor.actor_id",
 joinColumns = @JoinColumn(name = "actor.actor_id"))
 
-private int actorId;
-private int filmId;
-private String lastUpdate;
-public int getActorId() {
+private short actorId;
+private short filmId;
+@UpdateTimestamp
+private Instant lastUpdate;
+public short getActorId() {
 	return actorId;
 }
-public void setActorId(int actorId) {
+public void setActorId(short actorId) {
 	this.actorId = actorId;
 }
-public int getFilmId() {
+public short getFilmId() {
 	return filmId;
 }
-public void setFilmId(int filmId) {
+public void setFilmId(short filmId) {
 	this.filmId = filmId;
 }
-public String getLastUpdate() {
+public Instant getLastUpdate() {
 	return lastUpdate;
 }
-public void setLastUpdate(String lastUpdate) {
+public void setLastUpdate(Instant lastUpdate) {
 	this.lastUpdate = lastUpdate;
 }
 @Override
 public String toString() {
 	return "FilmActor [actorId=" + actorId + ", filmId=" + filmId + ", lastUpdate=" + lastUpdate + "]";
 }
-public FilmActor(int actorId, int filmId, String lastUpdate) {
+public FilmActor(short actorId, short filmId, Instant lastUpdate) {
 	super();
 	this.actorId = actorId;
 	this.filmId = filmId;

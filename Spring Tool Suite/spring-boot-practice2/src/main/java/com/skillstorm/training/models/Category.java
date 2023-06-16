@@ -1,5 +1,7 @@
 package com.skillstorm.training.models;
 
+import java.time.Instant;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+
+import org.hibernate.annotations.UpdateTimestamp;
 
 @Entity
 public class Category {
@@ -20,13 +24,15 @@ public class Category {
 //	@JoinTable(name = "category_id",
 //	joinColumns = @JoinColumn(name = "actor_id"))
 	
-	private int categoryId;
+	private byte categoryId;
+	@Column(length = 25)
     private String name;
-    private String lastUpdate;
-	public int getCategoryId() {
+    @UpdateTimestamp
+    private Instant lastUpdate;
+	public byte getCategoryId() {
 		return categoryId;
 	}
-	public void setCategoryId(int categoryId) {
+	public void setCategoryId(byte categoryId) {
 		this.categoryId = categoryId;
 	}
 	public String getName() {
@@ -35,17 +41,17 @@ public class Category {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getLastUpdate() {
+	public Instant getLastUpdate() {
 		return lastUpdate;
 	}
-	public void setLastUpdate(String lastUpdate) {
+	public void setLastUpdate(Instant lastUpdate) {
 		this.lastUpdate = lastUpdate;
 	}
 	@Override
 	public String toString() {
 		return "Category [categoryId=" + categoryId + ", name=" + name + ", lastUpdate=" + lastUpdate + "]";
 	}
-	public Category(int categoryId, String name, String lastUpdate) {
+	public Category(byte categoryId, String name, Instant lastUpdate) {
 		super();
 		this.categoryId = categoryId;
 		this.name = name;
