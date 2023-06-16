@@ -1,6 +1,7 @@
 package com.skillstorm.training.models;
 
 import java.time.Instant;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,20 +11,28 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.UpdateTimestamp;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Actor {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "actor_id")
+	private short actorId;
 	
-	@ManyToMany
+	
+	@OneToMany
+	@JoinColumn(name = "actor_id")
+	@JsonIgnore
+	private Set<FilmActor> filmActors;
 	
 
 	
-	private short actorId;
+	
 	@Column(length = 45)
     private String firstName;
 	@Column(length = 45)

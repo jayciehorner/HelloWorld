@@ -1,6 +1,7 @@
 package com.skillstorm.training.models;
 
 import java.time.Instant;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,8 +11,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.UpdateTimestamp;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Category {
@@ -19,12 +23,16 @@ public class Category {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "category_id")
-	
-	@ManyToMany
-//	@JoinTable(name = "category_id",
-//	joinColumns = @JoinColumn(name = "actor_id"))
-	
 	private byte categoryId;
+	
+//	@JoinTable(name = "category_film",
+//	joinColumns = @JoinColumn(name = "category_id"))
+	
+	@OneToMany
+	@JsonIgnore
+	private Set<FilmCategory> categories;
+	
+	
 	@Column(length = 25)
     private String name;
     @UpdateTimestamp

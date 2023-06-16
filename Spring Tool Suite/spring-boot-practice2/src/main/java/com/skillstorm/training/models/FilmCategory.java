@@ -16,48 +16,38 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 @Entity
 public class FilmCategory {
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "film_id")
-	
+	private int id;
 	@ManyToOne
-	
-	@JoinTable(name = "film_id",
-	joinColumns = @JoinColumn(name = "category_id"))
-	
-	private short filmId;
-    private byte categoryId;
-    @UpdateTimestamp
-    private Instant lastUpdate;
-	public short getFilmId() {
-		return filmId;
-	}
-	public void setFilmId(short filmId) {
-		this.filmId = filmId;
-	}
-	public byte getCategoryId() {
-		return categoryId;
-	}
-	public void setCategoryId(byte categoryId) {
-		this.categoryId = categoryId;
-	}
+	@JoinColumn(name = "category_id")
+	private Category category;
+	@ManyToOne
+	@JoinColumn(name = "film_id")
+	private Film film;
+
+	@UpdateTimestamp
+	private Instant lastUpdate;
+
 	public Instant getLastUpdate() {
 		return lastUpdate;
 	}
+
 	public void setLastUpdate(Instant lastUpdate) {
 		this.lastUpdate = lastUpdate;
 	}
+
+	public Film getFilm() {
+		return film;
+	}
+
+	public void setFilm(Film film) {
+		this.film = film;
+	}
+
 	@Override
 	public String toString() {
-		return "FilmCategory [filmId=" + filmId + ", categoryId=" + categoryId + ", lastUpdate=" + lastUpdate + "]";
+		return "FilmCategory [category=" + category + ", film=" + film + ", lastUpdate=" + lastUpdate + "]";
 	}
-	public FilmCategory(short filmId, byte categoryId, Instant lastUpdate) {
-		super();
-		this.filmId = filmId;
-		this.categoryId = categoryId;
-		this.lastUpdate = lastUpdate;
-	}
-    
-    
+
 }

@@ -1,12 +1,14 @@
 package com.skillstorm.training.models;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import java.time.Instant;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,26 +23,29 @@ import org.hibernate.annotations.UpdateTimestamp;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 @Entity
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+//@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Film {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "film_id")
-
 	private short filmId;
 	@Column(length = 255)
 	private String title;
+	@Column(columnDefinition = "text")
 	private String description;
 	private int releaseYear;
 	private short length;
-	private String rating;
+	private EnumType rating;
 	@UpdateTimestamp
 	private Instant lastUpdate;
 	
-	@OneToMany(mappedBy = "film_category")
-	@JoinTable(name = "film_id",
-				joinColumns = @JoinColumn(name = "film_id"),
-				inverseJoinColumns = @JoinColumn(name = "actor_id"))
+	@OneToMany(mappedBy = "film")
+	@JsonIgnore
+	private Set <FilmCategory> filmCategories;
+	@OneToMany(mappedBy = "film")
+	@JsonIgnore
+	private Set <FilmActor> filmActors;
+	
 	
 	public short getFilmId() {
 		return filmId;
@@ -72,10 +77,10 @@ public class Film {
 	public void setLength(short length) {
 		this.length = length;
 	}
-	public String getRating() {
+	public EnumType getRating() {
 		return rating;
 	}
-	public void setRating(String rating) {
+	public void setRating(EnumType rating) {
 		this.rating = rating;
 	}
 	public Instant getLastUpdate() {
@@ -89,7 +94,7 @@ public class Film {
 		return "Film [filmId=" + filmId + ", title=" + title + ", description=" + description + ", releaseYear="
 				+ releaseYear + ", length=" + length + ", rating=" + rating + ", lastUpdate=" + lastUpdate + "]";
 	}
-	public Film(short filmId, String title, String description, int releaseYear, short length, String rating,
+	public Film(short filmId, String title, String description, int releaseYear, short length, EnumType rating,
 			Instant lastUpdate) {
 		super();
 		this.filmId = filmId;
@@ -99,6 +104,21 @@ public class Film {
 		this.length = length;
 		this.rating = rating;
 		this.lastUpdate = lastUpdate;
+	}
+	public Set<FilmCategory> getFilmCategories() {
+		return filmCategories;
+	}
+	public void setFilmCategories(Set<FilmCategory> filmCategories) {
+		this.filmCategories = filmCategories;
+	}
+	public Set<FilmActor> getFilmActors() {
+		return filmActors;
+	}
+	public void setFilmActors(Set<FilmActor> filmActors) {
+		this.filmActors = filmActors;
+	}
+	public Film() {
+		
 	}
 	
 }
