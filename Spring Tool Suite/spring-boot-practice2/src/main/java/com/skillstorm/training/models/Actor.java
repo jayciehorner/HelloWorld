@@ -24,14 +24,10 @@ public class Actor {
 	@Column(name = "actor_id")
 	private short actorId;
 	
-	
 	@OneToMany
 	@JoinColumn(name = "actor_id")
 	@JsonIgnore
 	private Set<FilmActor> filmActors;
-	
-
-	
 	
 	@Column(length = 45)
     private String firstName;
