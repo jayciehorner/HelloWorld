@@ -1,0 +1,169 @@
+<!-- HTML = Hypertext Markup Language 
+- This is a way structure and present the content of our webpage 
+- There are three peices to creating a webpage
+    1. content = HTML
+    2. style = CSS (cascading style sheets)
+    3. behaviour = JavaScript (this is not related to Java, it runs inside the browser)
+- All of these comments are public! So be careful what you put here.
+- To see this, use ctrl-shift-i or rt-click inspect or F12 in your browser
+
+- Two types of elements: block and inline
+- Two types of tags: self-closing like meta and br vs normally we need opening and closing tags
+-->
+<html>
+
+<head>
+    <meta name="keywords" content="html,learn to code,css,javascript">
+    <title>My Webpage!</title> <!-- Name displayed at the top of the browser tab -->
+    <style>
+        li {
+            color: blue;
+        }
+
+        #mycat {
+            color: purple;
+            background-color: aquamarine;
+        }
+
+        .big-cat {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .center {
+            text-align: center;
+        }
+        h1 {
+            text-align: center;
+        }
+
+        body {
+            background-color: bisque;
+        }
+
+        main {
+            background-color: white;
+            width: 80%;
+            margin: 2% 10%;
+            padding: 2%;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <!-- White space is ignored, one whitespace is the same as 10  -->
+        <h1>Hello world! </h1><!-- br is break for newlines-->
+        <div class="center">
+            <a href="https://en.wikipedia.org/wiki/Flying_squirrel">About flying squirels</a> |
+            <a href="#good-bye">Bottom of Page</a> |
+            <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element">HTML Elements</a>
+        </div>
+        <h2>My first webpage.</h2> <!-- This is a block element - it takes up a whole horizontal block-->
+        <h3>HTML Block Tags</h3>
+        <p>Paragraph tags are for large blocks of text that should be spaced out vertically.</p>
+        <p>Sean <b>hates</b> paragraph tags. You can do the same thing with CSS and that's probably what you want to do
+            anyway.<br>
+            Sean also hates br tags. Again you can do this better another way by wrapping each section in a div </p>
+        <h3>HTML Inline Tags</h3>
+        <ul>
+            <li>span which is a generic inline element</li>
+            <li><b>b</b> which is bold</li>
+            <li><em>em</em> for emphasis</li>
+        </ul>
+        <!-- SEMANTIC TAGS vs generic tags 
+            - div is the generic type of division I can make on my page
+            - html added is semantic tags like 
+                main
+                section
+                nav
+                footer
+                etc. 
+        -->
+        <div>
+            <h2>My Favorite Animals</h2>
+            <ol>
+                <li>Cat</li>
+                <li id="mycat">Cat</li>
+                <li> Cat
+                    <ol>
+                        <li>Cat</li>
+                        <li class="big-cat">Cat</li>
+                        <li class="big-cat">Cat</li>
+                        <li>Cat</li>
+                    </ol>
+                </li>
+                <li>Cat</li>
+            </ol>
+            <!-- Use reactive images so don't serve up a huge image if you only need 100x100 -->
+            <img height="100px" alt="flying squirrel cat toy"
+                src="https://target.scene7.com/is/image/Target/GUEST_81376db7-0bce-40e6-8627-c1469568b8ac?qlt=85&fmt=webp&hei=199&wid=199">
+            <img height="100px" alt="flying squirrel cat toy"
+                src="https://target.scene/is/image/Target/GUEST_81376db7-0bce-40e6-8627-c1469568b8ac?qlt=85&fmt=webp&hei=199&wid=199">
+            <img height="100px" alt="flying squirrel cat toy"
+                src="https://target.scene/is/image/Target/GUEST_81376db7-0bce-40e6-8627-c1469568b8ac?qlt=85&fmt=webp&hei=199&wid=199">
+            <a target="_blank" href="https://en.wikipedia.org/wiki/Flying_squirrel">
+
+                <img src="./img_of_squirrel_toy.webp" style="border: 2px black solid;">
+            </a>
+            <video src="" controls></video><!-- there are attributes have names and values -->
+
+        </div>
+        <dl> <!-- dl = desciptive list -->
+            <dt>This is a term</dt> <!-- descriptive term -->
+            <dd>This is the descirption of the term I am trying to define.</dd>
+            <dt>Lunch</dt>
+            <dd>A great time to take a nap.</dd>
+            <dt>Dinner</dt>
+            <dd></dd>
+        </dl>
+        <!-- div = division creating horizontal sections on our page -->
+        <div>This is a webpage. <span>Isn't it cool?</span> This is another line.<br><br><br /><br />
+            This is so cool. I can see the saves.</div>
+        <div>
+            <h3>Random Stuff</h3>
+            <table style="background-color: bisque;">
+                <thead style="background-color: teal;">
+                    <tr>
+                        <th>Color</th>
+                        <th>Hexcode</th>
+                        <th>RGB Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Red</td>
+                        <td>xFF0000</td>
+                        <td>RGB(255,0,0)</td>
+                    </tr>
+                    <tr>
+                        <td>Blue</td>
+                        <td>x0000FF</td>
+                        <td>RGB(0,0,255)</td>
+                    </tr>
+                    <tr>
+                        <td>Color</td>
+                        <td colspan="2" style="background-color: red;">Unknown</td>
+                        <!-- What happens if I don't have the same number of columns in each row? -->
+                        <!-- TODO find how to get the cell containing the text "unkown"
+                     to span 2 columns.
+                     Drop a screenshot or code snippet in the chat -->
+                    </tr>
+                </tbody>
+            </table>This is text after my table.
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <!-- TODO
+        - form elements (optional: Try adding a form to your about-me page)
+        - semantic block elements (section and footer and nav etc.)
+        -->
+        </div>
+        <span id="good-bye">Good bye! Thanks for visiting my webpage!</span>
+    </main>
+</body>
+
+</html>

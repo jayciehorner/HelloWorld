@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Forms</title>
+    <style>
+        div {
+            margin-bottom: 16px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <br><br><br>
+
+
+    <!-- FORMS IN HTML -->
+
+    <!-- 
+        Forms can take many...wait for it...forms!
+        Can be a simple login, a registration form
+        Anything where the user's data is being collected and
+            dealt with in some way
+
+
+        We can have the user fill in important information - each will be best suited to a different type of input
+            - name
+            - birthday
+            - SSN
+            - phone
+            - email
+
+        We can also have them select/input other information
+            via non-typing means
+            - buttons
+            - checkboxes
+            - color selectors
+
+        We use different types of tag to collect different types
+            of information
+            - form
+            - buttons
+            - input
+            - label
+            - select (drop downs)
+
+        The <input> tag is critical and can take on many types
+            - text
+            - date
+            - number
+            - color
+            - email
+            - password -- doesn't show what is being typed 
+            - tel (telephone number) -- does validation for you
+            - radio buttons
+            - checkboxes
+            - file uploads
+
+        At the end of the form process, the user will submit the form
+        
+        ONLY inputs WITHIN the form tag 
+        will be submitted with the form
+     -->
+
+    <!-- A form tag has two important attributes:
+            - method = what type of http request method
+            - action = where to send that request
+     -->
+
+    <!-- CRUD operations
+        these are the basic operations we use with databases
+
+        C = create
+        R = read
+        U = update
+        D = delete
+
+        C is done with a POST request
+        R is done with a GET request
+        U is done with a PUT request
+        D is done with a DELETE request
+
+        form's method property deals with GET and POST
+
+        GET - the form-data will be transmitted as part of the url's request parameters
+                localhost:5500/forms.html?name=Erica&favorite-food=apples
+                localhost:5500/forms.html?username=erica&password=0000 BAD
+
+        POST - the form-data will be transmitted as part of the http request's body
+              by default html forms use application/x-www-form-urlencoded  
+              which is similar to json
+                
+                    name: "Erica",
+                    favoriteFood: "apples"
+                
+    
+    -->
+    <!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+    <!-- EXAMPLE 1: MAKE A FORM THAT  makes a GET request to Google
+         GET says "give me the resource in the action property" -->
+
+         <!-- =====================================================
+            TODO create a form that does a GET request to any url to see what happens 
+            =======================================================
+        -->
+
+    <form method="GET" action="https://amazon.com/search">
+
+        <!-- All other previous tags are still relevant in a form -->
+        <p>GET form -- Go to Amazon.com/?</p>
+        <input type="text" name="animal" placeholder="cat">
+
+        <!-- Add a button tag to submit the form, 
+                - - Add the attribute type="submit"  -- tells the form to send a GET request when clicked
+                - - Add the text for the button to display
+             -->
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+    </form>
+
+        <!-- Notice, not all characters are allowed in urls, because they have special meanings or could be misinterpretted
+                so some characters get encoded, for example
+                space = %20
+                ! = %21
+                " = %22
+                # = %23
+                $ = %24
+                % = %25
+                & = %26
+                ' = %27
+                ( = %28
+                ) = %29
+                * = %2A
+                + = %2B
+                , = %2C -- This is a hexvalue so each digit can be 0123456789ABCDEF
+                - = %2D
+                . = %2E
+                / = %2F
+                < = %3C
+                > = %3E
+                ? = %3F
+                @ = %40
+                © = %A9
+                ® = %AE
+            -->
+
+            <!-- Likewise HTML doesn't like some special cahracters so instead use the unicode value 
+                < = lg;
+                > = gt;
+               -->
+<script>
+    console.log("hello world");
+</script>
+</body>
+
+</html>

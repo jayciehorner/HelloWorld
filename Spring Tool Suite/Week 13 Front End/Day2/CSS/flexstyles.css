@@ -1,0 +1,90 @@
+.img {
+    background-image: var(--img-url);
+    background-size: 200px auto; /* one argument sets the image width to the div width some %*/
+    background-position-x: center;
+    background-position-y: center;
+    background-repeat: no-repeat;
+    background-color: white; 
+}
+
+.dogimg {
+    --img-url: url("/day2/images/puppy_poster.jpg");
+}
+
+.boximg {
+    --img-url: url("/day2/images/box.jpg")
+}
+
+.yakimg {
+    --img-url: url("/day2/images/yak.png")
+}
+
+
+a {
+    color: red !important;
+}
+
+h6 {
+    float: right;
+    font-size: 1em;
+    margin: 0;
+    max-width: 200px;
+}
+
+h5 {
+    margin: 10px 0;
+    font-size: 1.2em;
+    max-width: 200px;
+}
+
+.info-card {
+    background-color: #d689d0;
+    padding: 10px;
+    border-radius: 10px;
+    justify-content: center;
+}
+
+
+.flex-container {
+    /* Color and border */
+    background-color: rgb(145, 221, 196);
+    border-radius: 20px;
+
+    /* Position and size itself */
+    width: 80%; /* relative to a parent */
+    margin: auto; /* puts the same margin on both sides - nicely centers*/
+    padding: 10px;
+
+    /* Position contents */
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    row-gap: 10px;
+    column-gap: 20px;
+}
+
+.item {
+    /* margin-right: 10px;
+    margin-left: 10px;
+    padding: 10px; */
+    height: 200px;
+    width: 200px; 
+    background-color: white;
+}
+
+.item:hover {
+    border: 3px solid rgb(10, 65, 53);
+}
+
+/* TODO */
+/* Make the text on a image pop a little better */
+.center {
+    text-align: center;
+    font-weight: bold;
+}
+
+.pale-white {
+    background-color: rgba(255,255,255,0.7);
+    width: fit-content;
+    margin: auto;
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Form</title>
+    <style>
+        div {
+            margin-bottom: 16px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <br><br><br>
+    <!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+    <!-- EXAMPLE 2: MAKE A FORM THAT makes a POST request to W3Schools
+            it sends our collected form data to be displayed -->
+    <form method="POST" action="https://www.w3schools.com/action_page.php" enctype="application/x-www-form-urlencoded">
+        <!-- enctype attribute = encoding used to send form data key-value pairs
+                    - enctype="application/x-www-form-urlencoded"  
+                        is the default
+                        
+                    - enctype="multipart/form-data"
+                        must be used if file uploads in form      
+        
+                    - enctype="text/plain" 
+                        does not encode the form data at all and is not recommended
+        
+                - -  TODO
+                (try making a POST request in Postman with the body of the request set to each of the above three types
+                 on the very bottom of the window is a "console" button which you can open to see the raw http request sent)
+                -->
+        <input type="text" name="first-name" placeholder="John">
+        <input type="text" name="last-name" placeholder="Doe">
+        <button type="submit">Submit</button>
+    </form>
+
+    <!--
+    To learn more about how our form data is being sent see https://www.w3.org/TR/html401/interact/forms.html#h-17.13.4.1
+
+    application/x-www-form-urlencoded  
+This is the default content type. Forms submitted with this content type must be encoded as follows:
+
+Control names and values are escaped. Space characters are replaced by `+', and then reserved characters are escaped as described in [RFC1738], section 2.2: Non-alphanumeric characters are replaced by `%HH', a percent sign and two hexadecimal digits representing the ASCII code of the character. Line breaks are represented as "CR LF" pairs (i.e., `%0D%0A').
+The control names/values are listed in the order they appear in the document. The name is separated from the value by `=' and name/value pairs are separated from each other by `&'.
+
+-->
+</body>
+
+</html>

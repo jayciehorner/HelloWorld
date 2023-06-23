@@ -1,0 +1,12 @@
+.dark-mode{
+    color: white;
+    background-color:darkslateblue;
+}
+
+div{
+    padding: 3em;
+}
+.img{
+    align-content: center;
+    align-content: space-evenly;
+}

@@ -1,0 +1,80 @@
+/* My banner  */
+.banner {
+    position: relative;
+    background-color: #384d48;
+    color: #e2e2e2;
+    text-align: center;
+    /* line-height: 5em; */
+    height: 100px; /* unit to use */
+    padding: 0px 10px 20px 30px ; /* order of padding is N E S W or top right bottom left */
+}
+
+nav {
+    transform: translateY(-3em);
+}
+
+h1 {
+    font-family: 'Tangerine', 'Georgia', 'Times New Roman', Times, serif;
+    font-size: 5rem;
+}
+
+main {
+    height: 100vmax; /* to set the height of main to be the full height of the viewport for now */
+    background-color: rgb(226, 226, 226);
+}
+
+.subtitle {
+    text-align: center;
+    background-color: #384d48;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+    width: 300px;
+    height: 200px;
+    background-color: rgb(98, 204, 169);
+    border-radius: 10px;
+    border-width: 5px;
+    border-color: rgb(52, 109, 90);
+
+}
+.card {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+}
+/* To give the cards individual styles, let's use an id*/
+
+/* #purple {
+    top: 20px;
+    left: 10px;
+    z-index: 100;
+    background-color: rgb(153, 71, 221);
+}
+
+#blue {
+    background-color: rgba(71, 41, 204, 1);
+    top: 40px;
+    left: 20px;
+    z-index: 10;
+}
+div.img {
+    
+    background-image: url("/day2/images/puppy_poster.jpg");
+    background-size: auto 100% ; /* one argument sets the image width to the div width some 
+    background-position-x: center;
+    background-position-y: center;
+    background-repeat: no-repeat;
+    background-color: white; 
+}
+div {
+    background-color: blue;
+}
+
+.img {
+    background-color: red;
+} */
+

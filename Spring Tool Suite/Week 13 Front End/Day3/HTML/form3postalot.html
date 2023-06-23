@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+    <style>
+        div {
+            margin-bottom: 16px;
+        }
+        input:invalid {
+            border: 2px red solid;
+        }
+    </style>
+</head>
+
+<body>
+
+    <br><br><br>
+
+    <!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+    <!-- EXAMPLE 3: MAKE A FORM THAT makes a POST request to W3Schools
+            it sends our collected form data to be displayed -->
+
+    <form method="POST" action="https://www.w3schools.com/action_page.php">
+    <p>POST form -- sends data somewhere</p>
+
+    <!-- This div is just for ease of reading the webpage -->
+    <div>
+        <!-- aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa -->
+        <!-- Add a label tag -->
+        <label for="first-name">First Name: </label>
+        <!-- for attribute = tells the screen reader which input this label describes
+                   for attribute has to match the id attribute of the input tag
+                   -------------                  -------------                
+             -->
+
+        <!-- Add a text input tag -->
+        <input id="first-name" name="first-name" type="text" placeholder="Enter your fist name .... " required pattern="E"/>
+        <!-- id attribute = unique identifier for this element on the html page (useful for our css sheet to select) 
+                 name attribute = the key in the key-value pair submitted to the backend. (value is the user input 
+                 type attribute = type of input ex: text or date or color 
+                 placeholder attribute = "ghost text" 
+            -->
+    </div>
+
+    <!-- WARNING: each input needs a unique name attribute, or they will overwrite each other -->
+    <div>
+        <!-- Add another label tag and text input tag-->
+        <label for="taco">Last Name: </label>
+        <input id="taco" name="last-name" type="text" placeholder="Please enter your last name ..." />
+    </div>
+
+    <div>
+        <label for="email" >Email: </label>
+        <input id="email" type="email" name="email">
+    </div>
+
+    <div>
+        <!-- bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb -->
+        <!-- Add a number input
+                - the number type allows only numerical values 
+            -->
+        <label for="age">Age: </label>
+        <input id="age" name="age" type="number" step="1" min="0" max="120" /> <!-- only valid values are starting at 0 and increments of 5-->
+        <!-- You can set the attributes
+                - min
+                - max
+                - step (increment) - changes the behavior of the up-down buttons (I can still type in whatever)
+            -->
+    </div>
+    <!-- ===========================================================================
+       TODO change your get and post forms to use labels 
+        and add a number input
+    ============================================================================
+-->
+
+    <div>
+        <!-- Add another number input-->
+        <label for="pets">Number of pets: </label>
+        <input id="pets" name="num-pets" type="number" step="2" min="1" max="10" /> 
+    </div>
+
+    <!-- ccccccccccccccccccccccccccccccccccccccccccccccccccccc -->
+    <!-- Add a date input
+            - date type lets the user type in a date
+              or select it from a calendar 
+        -->
+    <div>
+        <label for="bday">Birthday: </label>
+        <input id="bday" name="bday" type="date" />
+    </div>
+
+    <div>
+        <label for="pickup">Order Pickup: </label>
+        <input id="pickup" name="pickup" type="time" />
+    </div>
+
+
+    <p>Whaddaya love?</p>
+
+    <!-- ddddddddddddddddddddddddddddddddddddddddddddddddddddd -->
+    <!-- Add a color input
+            - color type uses a color picker, and submits the hex value
+         -->
+    <div>
+        <label for="color">Favorite Color: </label>
+        <input id="color" name="favcol" type="color">
+    </div>
+
+
+    <!-- eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee -->
+    <!-- Add checkbox inputs
+            - checkboxes submit a value if checked, and don't submit anything if not
+            - checkboxes MUST include the value property to give it a specific value 
+        -->
+    <div>
+        <div>
+            <input id="pizz-lover" name="pizza-lover" type="checkbox" value="pizza" />
+            <!-- labels CAN be after...or ANYWHERE -->
+            <label for="pizza-lover">Pizza Lover</label>
+        </div>
+
+        <div>
+            <input id="chocolate-lover" name="chocolate-lover" type="checkbox" value="chocolate" />
+            <label for="chocolate-lover">Chocolate Lover</label>
+        </div>
+    </div>
+
+    <!-- ffffffffffffffffffffffffffffffffffffffffffffffffffffff -->
+    <!-- Add a radio button inputs
+            - radio buttons allow selection of ONLY one within a group 
+            - radio buttons in a group MUST have the same
+            name property so when you select one,
+            the others get deselected
+            - like with checkboxes, you need a value property
+        -->
+
+    <p>Which kind of pizza do you prefer?</p>
+
+    <div>
+        <div>
+            <input id="cheese" name="pizza" type="radio" value="cheese" />
+            <label for="cheese">Cheese Pizza</label>
+        </div>
+        <div>
+        <input id="pepperoni" name="pizza" type="radio" value="pepperoni" />
+        <label for="pepperoni">Pepperoni Pizza</label>
+    </div>
+    <div></div>
+        <input id="" name="pizza" type="radio" value="meat" />
+        <label for="">Meat Lover's Pizza</label>
+    </div>
+    <div>
+        <input id="hawaiian" name="pizza" type="radio" value="hawaiian" />
+        <label for="hawaiian">Hawaiian Pizza</label></div>
+    </div>
+
+    <!-- ffffffffffffffffffffffffffffffffffffffffffffffffffffff -->
+    <!-- Add a drop down select tag
+            - the select tag creates a dropdown with choices
+            - the select tag must contain several option tags to choose from
+        -->
+    <p>What's your favorite genre of music?</p>
+
+    <!--  -->
+    <div>
+        <label for="music-genre">Favorite Genre: </label>
+        <!-- name is the key for any submitted choice -->
+        <select name="genre" id="music-genre">
+
+            <!-- each option needs a value and dropdown text -->
+            <option value="rock">Rock</option>
+            <option value="rnb">R&B</option>
+            <option value="edm">EDM</option>
+            <option value="jazz">Jazz</option>
+            <option value="reggae">Reggae</option>
+            <option value="disco">Disco</option>
+            <option value="classical" selected>Classical</option>
+
+        </select>
+    </div>
+
+    <p>What's your favorite Lord of the Rings movie?</p>
+
+    <!--  -->
+    <div>
+        <label for="movie-genre">Favorite movie: </label>
+        <!-- name is the key for any submitted choice -->
+        <select name="movie" id="movie-genre">
+            
+            <!-- each option needs a value and dropdown text -->
+            <option selected disabled hidden>Select an option</option> <!-- This will display some instructions instead of one the values - it is hidden so it's not in the drop down list and disabled so they can't select it -->
+            <option value="1">Fellowship of the Rings</option>
+            <option value="2">Two Towers</option> <!-- if you forget your value attribute it defaults to whatever the content of the option tag is-->
+            <option value="3">Return of the King</option>
+
+        </select>
+    </div>
+
+    <!-- button type reset will clear the form -->
+    <button type="reset">RESET</button>
+    <!-- button type submit will submit the form -->
+    <button type="submit">SUBMIT</button>
+    <!-- <input type="submit" value="Enter"> where value is the text displayed -->
+
+    </form>
+
+</body>
+
+</html>
+
+<!-- 
+
+    form submission is very similar in format to JSON
+        - JavaScript Object Notation
+
+    {
+        first-name: "Jon",
+        last-name: "Provan",
+        age: 29,
+        music-preference: "Rock"
+    }
+
+ -->
+
+ <!-- Form validation we can do with the built-in HTML tag attributs:
+      - required
+      - min max and step on number inputs
+      - email tags also have built in check for the string matching a patter 
+      - we can define our own pattern as well (built-in regex for matching email,tel, etc. are useful)
+          - when using pattern also provide title="Must provide a 2-digit state code" etc. specific error message
+      - minlength="8" maxlength="16" etc. for specifying how many characters in a text field or password field etc.
+ -->
+
+ <!-- Form attributes
+      - disabled
+      - hidden 
+-->
