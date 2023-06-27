@@ -20,4 +20,26 @@
         console.log(x, "is available in the body's script tag");
     </script>
 </body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Example1</title>
+    <script>
+        console.log("Hello!");
+        let x = 10; // This is the same scope as the below script tag
+        // can I do this?
+        /**
+         * These lines are interpretted as js so I can do our js comment styles
+        */
+    </script>
+    <link rel="stylesheet" href="style.css" >
+    <script src="./04jsinhtml.js"></script>
+</head>
+<body>
+    <script>
+        console.log(x, " is available in the body's script tag");
+    </script>
+</body>
 </html>

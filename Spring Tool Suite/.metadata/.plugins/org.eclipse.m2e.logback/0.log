@@ -4610,3 +4610,4 @@ org.eclipse.core.runtime.CoreException: Could not resolve artifact antlr:antlr:j
 2023-06-20 18:58:49,963 [Worker-37: Launching spring-boot-practice2 - SpringBootPractice2Application] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2023-06-20 18:58:49,963 [Worker-37: Launching spring-boot-practice2 - SpringBootPractice2Application] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
 2023-06-20 18:58:49,963 [Worker-37: Launching spring-boot-practice2 - SpringBootPractice2Application] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/jayciehorner/WorkSpace/Spring Tool Suite/spring-boot-practice2/src/test/resources
+2023-06-23 15:09:14,641 [Worker-7: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.

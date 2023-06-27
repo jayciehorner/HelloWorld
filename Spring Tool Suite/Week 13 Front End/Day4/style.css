@@ -1,12 +1,8 @@
-.dark-mode{
+.dark-mode {
     color: white;
-    background-color:darkslateblue;
+    background-color: darkslategrey;
 }
 
-div{
+div {
     padding: 3em;
-}
-.img{
-    align-content: center;
-    align-content: space-evenly;
 }
