@@ -14,3 +14,6 @@ export class Book{
 }
 
 // You can write getters and setters that look more like Java
+let harryPotter: Book = new Book("Harry Potter Book 1");
+let test  = harryPotter.getTitle();
+console.log(test);
