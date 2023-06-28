@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODOs</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Angular Topics</title>
+  <style>
+    body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  color: #333;
+  text-align: center;
+}
+
+form {
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+input[type="checkbox"]:checked + span {
+  font-weight: bold;
+}
+
+input[type="checkbox"] + span {
+  color: #333;
+}
+
+input[type="checkbox"]:hover + span {
+  text-decoration: underline;
+}
+
+input[type="checkbox"]:focus {
+  outline: none;
+}
+
+input[type="checkbox"]:focus + span {
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+}
+
+input[type="checkbox"]::before {
+  content: "";
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin-right: 5px;
+  border: 1px solid #aaa;
+  border-radius: 2px;
+  vertical-align: middle;
+  background-color: #fff;
+}
+
+input[type="checkbox"]:checked::before {
+  content: "\2713";
+  color: #333;
+  text-align: center;
+  line-height: 14px;
+}
+
+.progress-bar {
+      width: 50%;
+      height: 20px;
+      background-color: #eee;
+      border-radius: 5px;
+      overflow: hidden;
+      margin-top: 20px;
+      margin: auto;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      background-color: #4CAF50;
+      transition: width 0.3s;
+    }
+
+  </style>
+</head>
+
+<body>
+  <h1>Angular Topics</h1>
+
+  <div class="progress-bar">
+    <div class="progress-bar-fill"></div>
+  </div>
+
+  <form>
+    <label><input type="checkbox" name="topic" value="Angular CLI"> Angular CLI</label><br>
+    <label><input type="checkbox" name="topic" value="Modules & Namespaces"> Modules & Namespaces</label><br>
+    <label><input type="checkbox" name="topic" value="Modules, Components, Services"> Modules, Components, Services</label><br>
+    <label><input type="checkbox" name="topic" value="Dependency Injection"> Dependency Injection</label><br>
+    <label><input type="checkbox" name="topic" value="Decorators"> Decorators</label><br>
+    <label><input type="checkbox" name="topic" value="*ngFor, ngIf, ngClass, ngStyle"> *ngFor, ngIf, ngClass, ngStyle</label><br>
+    <label><input type="checkbox" name="topic" value="Property Binding"> Property Binding</label><br>
+    <label><input type="checkbox" name="topic" value="Event Binding"> Event Binding</label><br>
+    <label><input type="checkbox" name="topic" value="Two-Way Binding & ngModel"> Two-Way Binding & ngModel</label><br>
+    <label><input type="checkbox" name="topic" value="Reactive Forms"> Reactive Forms</label><br>
+    <label><input type="checkbox" name="topic" value="Form Validation"> Form Validation</label><br>
+    <label><input type="checkbox" name="topic" value="Promises"> Promises</label><br>
+    <label><input type="checkbox" name="topic" value="RxJS Observables"> RxJS Observables</label><br>
+    <label><input type="checkbox" name="topic" value="HttpClient"> HttpClient</label><br>
+    <label><input type="checkbox" name="topic" value="Client Side Routing & router-outlet"> Client Side Routing & router-outlet</label><br>
+    <label><input type="checkbox" name="topic" value="Client Side vs Server Side Routing"> Client Side vs Server Side Routing</label><br>
+    <label><input type="checkbox" name="topic" value="Routing Navigation"> Routing Navigation</label><br>
+    <label><input type="checkbox" name="topic" value="Component Lifecycle Hooks"> Component Lifecycle Hooks</label><br>
+  </form>
+
+
+  <script>
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    const progressBarFill = document.querySelector('.progress-bar-fill');
+    const progressBar = document.querySelector('.progress-bar');
+    const totalTopics = checkboxes.length;
+
+    function updateProgressBar() {
+      const checkedTopics = document.querySelectorAll('input[type="checkbox"]:checked').length;
+      const progressPercent = (checkedTopics / totalTopics) * 100;
+      progressBarFill.style.width = `${progressPercent}%`;
+    }
+
+    checkboxes.forEach((checkbox) => {
+      checkbox.addEventListener('change', updateProgressBar);
+    });
+    progressBarFill.style.width = `0%`; // initial value of 0
+  </script>
+
+</body>
+
+</html>
+
+</body>
+</html>
