@@ -1,1 +1,11 @@
-<p>example3 works!</p>
+<!-- DO NOT PUT html tag or body tag in
+the component templates. Components are
+only a piece of your page! ()-->
+
+<!-- two way binding -->
+<input [(ngModel)]="imgUrl()" >
+
+
+<!-- one way binding -->
+<img [src]="imgUrl" >
+

@@ -1,13 +1,18 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule  } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-example3',
-  standalone: true,
-  imports: [CommonModule],
+  selector: 'example3',
   templateUrl: './example3.component.html',
-  styleUrls: ['./example3.component.css']
+  styleUrls: ['./example3.component.css'],
+  standalone: true,
+  imports: [CommonModule, FormsModule],
 })
 export class Example3Component {
+
+  imgUrl: string = "";
+
+
 
 }
