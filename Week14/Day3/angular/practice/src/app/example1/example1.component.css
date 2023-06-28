@@ -1,0 +1,10 @@
+p {
+    background-color: blanchedalmond;
+    color: darkslategrey;
+    padding: 1rem;
+    width: 10rem;
+    border-radius: 10px;
+    font-size: x-large;
+    border: 3px solid darkslategray;
+    box-shadow: 5px 5px;
+}
