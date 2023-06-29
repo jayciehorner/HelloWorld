@@ -1,6 +1,56 @@
-<p>Hi, my name is {{name}}</p>
-<child [parentName]="name"></child> 
-<!--    -----------------------
-            child property -->
+<!-- ------------------------------------------------------------------>
+<div class="flex">
+    <div class="green bold-box">
+        <p>Hi my name is {{ name }} </p>
 
-<!-- custom property -- i'm handing information from the parent to the child-->
+
+
+        <p *ngIf="hasChildren()">My children are: </p>
+        <!-- angular directive to loop through the list of children-->
+        <ul>
+            <li *ngFor="let childName of children">{{ childName }} </li>
+        </ul>
+
+        <!-- <p *ngIf="hasChildren()" *ngFor="let c of children">Lovely!</p> -->
+        <ng-container *ngIf="hasChildren()"> <!-- useful hack for 2 structoral directives -->
+            <p *ngFor="let c of children">Lovely!</p>
+        </ng-container>
+
+    </div>
+
+    <div class="blue bold-box">
+        <p>Event Logs:</p>
+        <div *ngFor="let l of log; let i = index">{{ (i + 1) + ". " + l }}</div>
+    </div>
+
+</div>
+<!-- ------------------------------------------------------------------>
+
+
+
+
+
+<!-- ------------------------------------------------------------------>
+<!-- Notice the child.component.ts properties being set are:
+        - parentName
+        - name
+    but in one case we've used [parentName]="___"
+    and in the other case we've used name="___"
+    
+    The difference is "Suzie" is a String literal. So the child's name property now holds the value "Suzie".
+    The child's parentName property is NOT set to the string literal "name" instead angular interprests "name"
+    as some javascript it needs to run, here the code is just a variable name, but it could also have been a method.
+-->
+<div class="flex col">
+    <child [parentName]="name" (nameEmit)="recordChild($event)" name="Suzie"></child>
+    <child [parentName]="name" (nameEmit)="recordChild($event)" name="Billy Bob"></child>
+    <child [parentName]="name" (nameEmit)="recordChild($event)" name="Bobby Jr"></child>
+    <child [parentName]="name" (nameEmit)="recordChild($event)" name="Little Bobby Table"></child>
+    <!-- 
+           ------------         --------- child's emit event parent is listening for - calls parent method
+           CHILD's property     CHILD's emit event
+   
+    Notice, this is not normal HTML. We are setting the value of custom properties -- I'm handing information from the parent to the child -->
+
+</div>
+<!-- ------------------------------------------------------------------>

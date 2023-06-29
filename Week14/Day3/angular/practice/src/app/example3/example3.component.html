@@ -2,10 +2,16 @@
 the component templates. Components are
 only a piece of your page! ()-->
 
+<h1>Example 3 Way Binding</h1>
+<div class="flex">
 <!-- two way binding -->
-<input [(ngModel)]="imgUrl()" >
+<input [(ngModel)]="imgUrl" >
 
 
 <!-- one way binding -->
 <img [src]="imgUrl" >
-
+</div>
+<!-- TODO take 9min and create a text input
+      and bind it to a header tag to 
+      dynamically change the text as 
+      the user types -->

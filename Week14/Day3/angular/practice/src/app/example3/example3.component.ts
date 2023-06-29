@@ -13,6 +13,4 @@ export class Example3Component {
 
   imgUrl: string = "";
 
-
-
 }

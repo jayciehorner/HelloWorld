@@ -3,7 +3,10 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'example2',
   template: `
+  <h1>Example 2 Property Binding</h1>
+  <div class="flex">
     <img [src]="imageUrl" alt="dog" >
+  </div>
   `,
   styles: [`font-size: 2em;`  ]
 })

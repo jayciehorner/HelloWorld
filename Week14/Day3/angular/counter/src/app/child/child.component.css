@@ -1,0 +1,8 @@
+p {
+    padding: 0.5rem;
+    background-color: rgb(240, 231, 255);
+    border: 3px solid;
+    box-shadow: 5px 5px ;
+    border-radius: 5px;
+    width:fit-content;
+}
