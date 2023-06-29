@@ -43,9 +43,11 @@ ng generate component comp-name --standalone
 
 ### Data binding
 
-Angular supports two-way data binding. We can define some data in the .ts file and referer to it in the .html template.
+Angular supports two-way data binding. 
 
 #### *Template literals*
+
+We can define some data in the .ts file and referer to it in the .html template.
 
 In my html I can use `<h1>{{ property }}</h1>`
 
@@ -61,12 +63,26 @@ In my html I can use `<h1>{{ property }}</h1>`
 
 Instead of displaying data, let's use the data in the component.ts file to set the properties of html elements in the template.
 
-Example: The src of an image can be set using the notation `<img [src]="imgUrl">` inside the "" is a field or mehtod from the component.ts
+Example: The src of an image can be set using the notation
+
+`<img [src]="imgUrl" >` inside the "" is a field or method from the component.ts
+
+[] = property binding and is one-way
+[()] = banana in a box notation is two-way
+commonly used on an input field to so the 
+property in component.ts
+
+```
+<input [(ngModel)]>="nameoffieldtoset" >
+```
 
 #### *Directives*
 
 1. structural 
-    a. ngFor
+    a. ngFor -- This is used with a for each loop on the element you want repeated 
+    ```
+    <li *ngFor="let something of somethings">{{ something }} </li>
+    ```
     b. ngIf
         we'll need to talk about `<ng-container>`
     c. ngSwitch
@@ -82,7 +98,7 @@ Example: The src of an image can be set using the notation `<img [src]="imgUrl">
 ### Services
 
 - dummy data
-    `RxJS` classes
+    `RxJS` classes Observable and of need to be imported
 - api data
     `HTMLClient`
 
