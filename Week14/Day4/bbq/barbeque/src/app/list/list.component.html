@@ -1,0 +1,23 @@
+<div id="list">
+    <h2>Barbeque Items</h2>
+    <table class="table table-primary mx-auto p-2 w-75">
+        <tr>
+            <th>Meat</th>
+            <th>Sauce</th>
+            <th>Cooking Style</th>
+            <th>Cooking Time</th>
+        </tr>
+        <tr>
+            <td>Ribs</td> <!-- Put some dummy data here for now to see it displayed -->
+            <td>Barbeque</td>
+            <td>Smoked</td>
+            <td>7 hours</td>
+        </tr>
+        <tr *ngFor="let item of barbequeItems">
+            <td>{{ item.meatType | titlecase}}</td> <!-- put dummy data here for now to see it displayed-->
+            <td>{{ item.sauceType | titlecase}}</td>
+            <td>{{ item.cookingStyle | titlecase}}</td>
+            <td>{{ item.cookingTime}} hours</td>
+        </tr>
+    </table>
+</div>
