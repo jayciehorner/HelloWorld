@@ -1,0 +1,27 @@
+<div id="form-page">
+    <h2>Add New Barbeque Item</h2>
+    <div>
+        <form (ngSubmit)="onSubmit();" [formGroup]="myForm">
+            <div class="form-group" >
+                <label for="meat">Meat Type:</label>
+                <input class="form-control" type="text" id="meat" name="meat" value="ribs" formControlName="meatType"> <!-- in order to be submitted it needs a name -->
+            </div>
+            <div class="form-group">
+                <label for="sauce" >Sauce Type:</label>
+                <input class="form-control" type="text" id="sauce" name="sauce" value="barbeque" formControlName="sauceType" >
+            </div>
+            <div class="form-group">
+                <label for="cooking-style">Cooking Style</label>
+                <input class="form-control" type="text" id="cooking-style" name="cooking-style" value="smoked" formControlName="cookingStyle">
+            </div>
+            <div class="form-group"> 
+                <label for="time">Cooking Time</label>
+                <input class="form-control" type="number" id="time" name="time" value="7" formControlName="cookingTime"><span> hours</span>
+            </div>
+            <input class="btn btn-primary" [disabled]="!myForm.valid" type="submit" value="Submit" > <!-- value is the text displayed on the button-->
+            <!--                               -------------
+                                            property binding
+            -->
+        </form>
+    </div>
+</div>
